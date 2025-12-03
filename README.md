@@ -36,16 +36,15 @@ Suppliers
 Orders
 - Create new orders
 - Add order line items
-	•	Update order status (NEW, PAID, SHIPPED, CANCELLED)
-	•	Auto-calculate total_amount
-	•	Cascade delete lines + order
+- Update order status (NEW, PAID, SHIPPED, CANCELLED)
+- Auto-calculate total_amount
+- Cascade delete lines + order
 
 UI / UX
-
-	•	Fully responsive using Bootstrap 5
-	•	Modernized dashboard layout (card-style home page)
-	•	Consistent layout and navigation across all pages
-	•	Flash notifications for all actions (success/error)
+- Fully responsive using Bootstrap 5
+- Modernized dashboard layout (card-style home page)
+- Consistent layout and navigation across all pages
+- Flash notifications for all actions (success/error)
 
 ### Schema Highlights
 All tables live in schema **`shop`**:
@@ -65,7 +64,7 @@ All tables live in schema **`shop`**:
 git clone <https://github.com/TheFourthAce4/CSE412Project-shop_app.git>
 cd project
 ```
-2. Install Dependencies
+2. Install required packages
 ```bash
 pip install flask psycopg2-binary
 ```
@@ -85,11 +84,11 @@ Update these fields inside app.py:
     "port": 8888
 }
 ```
-4. Create Database Schema
+5. Create Database Schema
 ```bash
 psql -d "$USER" -p 8888 -v ON_ERROR_STOP=1 -f _schema.sql
 ```
-5. Load Data
+6. Load Data
 Open psql:
 ```bash
 psql -d "$USER" -p 8888
