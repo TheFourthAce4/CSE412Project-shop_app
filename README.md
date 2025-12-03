@@ -11,21 +11,40 @@ This project implements Phase 1, Phase 2, and Phase 3 requirements of the CSE 41
 ## Features
 The application supports database-backed operations for:
 
-### Products
-- View all products  
-- Display supplier relationship  
+Products
+	•	View all products
+	•	Add new products (name, category, stock, cost, supplier)
+	•	Delete products
+	•	Supplier dropdown populated dynamically
 
-### Customers
-- View customers  
-- Add customers  
-- Delete customers  
+Customers
+	•	View customers
+	•	Add new customers
+	•	Delete customers
+	•	Capture full address & contact information
 
-### Orders
-- View all orders  
-- Create new orders  
-- Add order line items  
-- Update order status  
-- Delete orders  
+Employees
+	•	View employees
+	•	Add employees (first/last name, position, hire date)
+	•	Delete employees
+
+Suppliers
+	•	View suppliers
+	•	Add new supplier
+	•	Delete suppliers
+
+Orders
+	•	Create new orders
+	•	Add order line items
+	•	Update order status (NEW, PAID, SHIPPED, CANCELLED)
+	•	Auto-calculate total_amount
+	•	Cascade delete lines + order
+
+UI / UX
+	•	Fully responsive using Bootstrap 5
+	•	Modernized dashboard layout (card-style home page)
+	•	Consistent layout and navigation across all pages
+	•	Flash notifications for all actions (success/error)
 
 ### Schema Highlights
 All tables live in schema **`shop`**:
@@ -40,20 +59,36 @@ All tables live in schema **`shop`**:
 
 ## Setup Instructions
 
-1. Install Dependencies
+1. Clone the repo
+```bash
+git clone <https://github.com/TheFourthAce4/CSE412Project-shop_app.git>
+cd project
+```
+2. Install Dependencies
 ```bash
 pip install flask psycopg2-binary
 ```
 
-2. Start PostgreSQL (your local DB)
+3. Start PostgreSQL (your local DB)
 ```bash
 pg_ctl -D "$HOME/db412" -o '-k /tmp -p 8888' start
 ```
-3. Create Database Schema
+4. Configure PostgreSQL
+Update these fields inside app.py:
+```bash
+   DB_CONFIG = {
+    "dbname": "YOUR_DB_NAME",
+    "user": "YOUR_DB_USER",
+    "password": "",
+    "host": "localhost",
+    "port": 8888
+}
+```
+4. Create Database Schema
 ```bash
 psql -d "$USER" -p 8888 -v ON_ERROR_STOP=1 -f _schema.sql
 ```
-4. Load Data
+5. Load Data
 Open psql:
 ```bash
 psql -d "$USER" -p 8888
