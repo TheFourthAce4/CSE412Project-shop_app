@@ -40,7 +40,7 @@ All tables live in schema **`shop`**:
 
 ## Setup Instructions
 
-### 1. Install Dependencies
+1. Install Dependencies
 ```bash
 pip install flask psycopg2-binary
 ```
