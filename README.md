@@ -12,35 +12,30 @@ This project implements Phase 1, Phase 2, and Phase 3 requirements of the CSE 41
 The application supports database-backed operations for:
 
 Products
-
-	•	View all products
-	•	Add new products (name, category, stock, cost, supplier)
-	•	Delete products
-	•	Supplier dropdown populated dynamically
+- View all products
+- Add new products (name, category, stock, cost, supplier)
+- Delete products
+- Supplier dropdown populated dynamically
 
 Customers
-
-	•	View customers
-	•	Add new customers
-	•	Delete customers
-	•	Capture full address & contact information
+- View customers
+- Add new customers
+- Delete customers
+- Capture full address & contact information
 
 Employees
-
-	•	View employees
-	•	Add employees (first/last name, position, hire date)
-	•	Delete employees
+- View employees
+- Add employees (first/last name, position, hire date)
+- Delete employees
 
 Suppliers
-
-	•	View suppliers
-	•	Add new supplier
-	•	Delete suppliers
+- View suppliers
+- Add new supplier
+- Delete suppliers
 
 Orders
-
-	•	Create new orders
-	•	Add order line items
+- Create new orders
+- Add order line items
 	•	Update order status (NEW, PAID, SHIPPED, CANCELLED)
 	•	Auto-calculate total_amount
 	•	Cascade delete lines + order
