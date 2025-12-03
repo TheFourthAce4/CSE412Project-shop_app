@@ -38,22 +38,22 @@ All tables live in schema **`shop`**:
 
 ---
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
-### 1️⃣ Install Dependencies
+### 1. Install Dependencies
 ```bash
 pip install flask psycopg2-binary
 ```
 
-2️⃣ Start PostgreSQL (your local DB)
+2. Start PostgreSQL (your local DB)
 ```bash
 pg_ctl -D "$HOME/db412" -o '-k /tmp -p 8888' start
 ```
-3️⃣ Create Database Schema
+3. Create Database Schema
 ```bash
 psql -d "$USER" -p 8888 -v ON_ERROR_STOP=1 -f _schema.sql
 ```
-4️⃣ Load Data
+4. Load Data
 Open psql:
 ```bash
 psql -d "$USER" -p 8888
