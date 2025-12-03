@@ -8,7 +8,7 @@ This project implements Phase 2 and Phase 3 requirements of the CSE 412 course, 
 
 ---
 
-## 🚀 Features
+## Features
 The application supports database-backed operations for:
 
 ### Products
@@ -35,33 +35,6 @@ All tables live in schema **`shop`**:
 - `employee`
 - `"order"`
 - `order_line`
-
----
-
-## 📦 Project Structure
-
-shop_app/
-│
-├── app.py                     # Flask application
-├── _schema.sql                # DDL for creating schema + tables
-├── suppliers.csv              # Synthetic dataset
-├── products.csv
-├── customers.csv
-├── employees.csv
-├── orders.csv
-├── order_lines.csv
-│
-├── templates/
-│   ├── layout.html
-│   ├── index.html
-│   ├── products.html
-│   ├── customers.html
-│   ├── orders.html
-│   ├── order_detail.html
-│   ├── employees.html
-│   └── suppliers.html
-│
-└── README.md
 
 ---
 
