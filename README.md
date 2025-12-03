@@ -64,16 +64,7 @@ All tables live in schema **`shop`**:
 git clone <https://github.com/TheFourthAce4/CSE412Project-shop_app.git>
 cd project
 ```
-2. Install required packages
-```bash
-pip install flask psycopg2-binary
-```
-
-3. Start PostgreSQL (your local DB)
-```bash
-pg_ctl -D "$HOME/db412" -o '-k /tmp -p 8888' start
-```
-4. Configure PostgreSQL
+2. Configure PostgreSQL
 Update these fields inside app.py:
 ```bash
    DB_CONFIG = {
@@ -83,6 +74,15 @@ Update these fields inside app.py:
     "host": "localhost",
     "port": 8888
 }
+```
+3. Install required packages
+```bash
+pip install flask psycopg2-binary
+```
+
+4. Start PostgreSQL (your local DB)
+```bash
+pg_ctl -D "$HOME/db412" -o '-k /tmp -p 8888' start
 ```
 5. Create Database Schema
 ```bash
