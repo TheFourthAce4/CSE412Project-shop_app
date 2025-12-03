@@ -1,0 +1,63 @@
+<!-- customers.html -->
+
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-3">Customers</h2>
+
+<table class="table table-striped table-bordered mb-4">
+  <thead>
+    <tr>
+      <th>ID</th><th>Name</th><th>Email</th><th>Phone</th>
+      <th>Address</th><th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for c in customers %}
+    <tr>
+      <td>{{ c.customer_id }}</td>
+      <td>{{ c.first_name }} {{ c.last_name }}</td>
+      <td>{{ c.email }}</td>
+      <td>{{ c.phone_number }}</td>
+      <td>{{ c.street }}, {{ c.city }}, {{ c.state }} {{ c.zip }}</td>
+      <td>
+        <form method="post" action="{{ url_for('delete_customer', customer_id=c.customer_id) }}"
+              onsubmit="return confirm('Delete this customer?');">
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3>Add New Customer</h3>
+<form method="post" action="{{ url_for('add_customer') }}" class="row g-2">
+  <div class="col-md-3">
+    <input class="form-control" name="first_name" placeholder="First Name" required>
+  </div>
+  <div class="col-md-3">
+    <input class="form-control" name="last_name" placeholder="Last Name" required>
+  </div>
+  <div class="col-md-3">
+    <input class="form-control" name="email" placeholder="Email">
+  </div>
+  <div class="col-md-3">
+    <input class="form-control" name="phone_number" placeholder="Phone">
+  </div>
+  <div class="col-md-3">
+    <input class="form-control" name="street" placeholder="Street">
+  </div>
+  <div class="col-md-3">
+    <input class="form-control" name="city" placeholder="City">
+  </div>
+  <div class="col-md-2">
+    <input class="form-control" name="state" placeholder="State">
+  </div>
+  <div class="col-md-2">
+    <input class="form-control" name="zip" placeholder="ZIP">
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-primary w-100">Add Customer</button>
+  </div>
+</form>
+{% endblock %}

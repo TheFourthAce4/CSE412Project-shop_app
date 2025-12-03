@@ -1,0 +1,72 @@
+<!-- order_detail.html -->
+
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-3">Order #{{ order.order_id }}</h2>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <p><strong>Customer:</strong> {{ order.customer_name }}</p>
+    <p><strong>Date:</strong> {{ order.order_date }}</p>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+    <p><strong>Payment:</strong> {{ order.payment_method }}</p>
+    <p><strong>Total:</strong> {{ order.total_amount }}</p>
+
+    <form class="row g-2" method="post" action="{{ url_for('update_order_status', order_id=order.order_id) }}">
+      <div class="col-md-4">
+        <label class="form-label">Update Status</label>
+        <select class="form-select" name="status">
+          <option value="NEW" {% if order.status == 'NEW' %}selected{% endif %}>NEW</option>
+          <option value="PAID" {% if order.status == 'PAID' %}selected{% endif %}>PAID</option>
+          <option value="SHIPPED" {% if order.status == 'SHIPPED' %}selected{% endif %}>SHIPPED</option>
+          <option value="CANCELLED" {% if order.status == 'CANCELLED' %}selected{% endif %}>CANCELLED</option>
+        </select>
+      </div>
+      <div class="col-md-2 align-self-end">
+        <button class="btn btn-secondary mt-2">Save Status</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<h3>Line Items</h3>
+<table class="table table-striped table-bordered mb-3">
+  <thead>
+    <tr>
+      <th>Product ID</th><th>Product</th><th>Quantity</th><th>Line Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for line in lines %}
+    <tr>
+      <td>{{ line.product_id }}</td>
+      <td>{{ line.product_name }}</td>
+      <td>{{ line.quantity }}</td>
+      <td>{{ line.line_price }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h4>Add Line Item</h4>
+<form method="post" action="{{ url_for('add_order_line', order_id=order.order_id) }}" class="row g-2">
+  <div class="col-md-4">
+    <label class="form-label">Product</label>
+    <select class="form-select" name="product_id" required>
+      <option value="">Select...</option>
+      {% for p in products %}
+        <option value="{{ p.product_id }}">{{ p.product_name }} ({{ p.cost }})</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">Quantity</label>
+    <input class="form-control" type="number" name="quantity" min="1" value="1" required>
+  </div>
+  <div class="col-md-2 align-self-end">
+    <button class="btn btn-primary mt-2">Add Line</button>
+  </div>
+</form>
+
+<a class="btn btn-link mt-3" href="{{ url_for('orders') }}">Back to Orders</a>
+{% endblock %}
