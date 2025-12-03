@@ -1,5 +1,4 @@
-# CSE412Project-shop_app
-# CSE 412 – Shop Management Application  
+# CSE 412: Shop Management Application  
 A Flask web application that interacts with a PostgreSQL database to manage a small retail shop.  
 This project implements Phase 2 and Phase 3 requirements of the CSE 412 course, including:  
 - ER → Relational schema (DDL)  
@@ -41,7 +40,7 @@ All tables live in schema **`shop`**:
 
 ## 📦 Project Structure
 
-SQLMidtermReport/
+shop_app/
 │
 ├── app.py                     # Flask application
 ├── _schema.sql                # DDL for creating schema + tables
