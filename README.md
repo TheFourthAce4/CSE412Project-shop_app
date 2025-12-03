@@ -121,7 +121,7 @@ COPY shop.order_line (order_id, product_id, quantity, line_price)
 FROM '/absolute/path/order_lines.csv'
 WITH (FORMAT csv, HEADER true);
 ```
-▶️ Running the App
+7. Run the App
 From the project directory:
 ```bash
 python app.py
